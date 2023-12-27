@@ -1,0 +1,13 @@
+.blogs_category {
+  width: 100%;
+  margin: 0rem 0;
+}
+
+.blogs_category .show_blogs{
+  max-width: 700px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-gap: 10px;
+  margin-bottom: 15px;
+}
+

@@ -1,0 +1,39 @@
+body {
+  background: #ffffff;
+  font-family: sans-serif;
+}
+
+#createblog .ql-container {
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  background: #ffffff;
+  font-size: 17px;
+}
+
+/* Snow Theme */
+#createblog .ql-snow.ql-toolbar {
+  position: sticky;
+  top: "150px";
+  display: block;
+  background: #ffffff;
+  z-index: 2;
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+}
+
+.ql-container.ql-snow {
+  height: auto;
+}
+
+#createblog .ql-editor {
+  height: 65vh;
+  overflow-y: scroll;
+}
+
+#commenteditor .ql-editor {
+  min-height: 5em;
+}
+
+#commenteditor .ql-container {
+  font-size: 16px;
+}

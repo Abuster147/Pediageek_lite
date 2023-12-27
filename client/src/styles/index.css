@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.quill > .ql-container > .ql-editor.ql-blank::before {
+  color: RED;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.btn-tag {
+  background-color: #e9e3e3;
+  text-transform: capitalize !important;
+  margin-bottom: 5px;
+  box-shadow: none;
+  color: rgb(0, 0, 0);
+  border: #000000;
+}
+
+.active-tag {
+  background-color: #000000;
+  text-transform: capitalize !important;
+  margin-bottom: 5px;
+  box-shadow: none;
+  color: rgb(255, 255, 255);
+}
+.btn-tag:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25),
+    0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+  background-color: #5cb85c;
+  color: darkblue;
+}
+
+.active-tag:hover {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25),
+    0 3px 10px 5px rgba(0, 0, 0, 0.05) !important;
+  color: darkgray;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  transform: translateY(-3px);
+  border-radius: 50%;
+}
+
+/* ---------- Auth Page------------ */
+@import url("./auth.css");
+
+/* ---------- Loading Page------------ */
+@import url("./loading.css");
+
+/* ---------- Alert Page------------ */
+@import url("./alert.css");
+
+/* ---------- Profile Page------------ */
+@import url("./profile.css");
+
+/* ---------- Category Page------------ */
+@import url("./category.css");
+
+/* ---------- Home Page------------ */
+@import url("./home.css");
+
+/* ---------- Blogs Category Page------------ */
+@import url("./blogs_category.css");
+
+/* ---------- Comments ------------ */
+@import url("./comments.css");
+
+/* ---------- Create Blog ------------ */
+@import url("./createblog.css");
+
+/* ---------- Side Bar ------------ */
+@import url("./sidebar.css");
+
+/* google font */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");

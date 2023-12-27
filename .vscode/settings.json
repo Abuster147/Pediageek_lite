@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/62c5baf3-88fc-437d-ab11-69f14655e2fc/microsoft.web/sites/subscriptions/62c5baf3-88fc-437d-ab11-69f14655e2fc/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/pediageektest",
+    "appService.deploySubpath": "."
+}

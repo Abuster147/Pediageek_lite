@@ -1,0 +1,133 @@
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+import { IBlog, IParams, RootStore } from "../../utils/TypeScript";
+
+import { deleteBlog } from "../../redux/actions/blogAction";
+
+interface IProps {
+  blog: IBlog;
+}
+
+const CardHoriz: React.FC<IProps> = ({ blog }) => {
+  const { slug } = useParams<IParams>();
+  const { auth, darkMode } = useSelector((state: RootStore) => state);
+  const dispatch = useDispatch();
+
+  const { isdarkMode } = darkMode;
+
+  const handleDelete = () => {
+    if (!auth.user || !auth.access_token) return;
+
+    if (slug !== auth.user._id)
+      return dispatch({
+        type: "ALERT",
+        payload: { errors: "Invalid Authentication." },
+      });
+
+    if (window.confirm("Do you want to delete this post?")) {
+      dispatch(deleteBlog(blog, auth.access_token));
+    }
+  };
+
+  return (
+    <div
+      className={`card mb-3 bg-${isdarkMode ? "dark" : "light"} text-${
+        isdarkMode ? "white" : "black"
+      }`}
+      style={{ minWidth: "260px" }}
+    >
+      <div className="row g-0 p-2">
+        <div
+          className="col-md-4"
+          style={{
+            minHeight: "150px",
+            maxHeight: "170px",
+            overflow: "hidden",
+          }}
+        >
+          {blog.thumbnail && (
+            <>
+              {typeof blog.thumbnail === "string" ? (
+                <Link to={`/blog/${blog._id}`}>
+                  <img
+                    src={blog.thumbnail}
+                    className="w-100 h-100"
+                    alt="thumbnail"
+                    style={{ objectFit: "cover" }}
+                  />
+                </Link>
+              ) : (
+                <img
+                  src={URL.createObjectURL(blog.thumbnail)}
+                  className="w-100 h-100"
+                  alt="thumbnail"
+                  style={{ objectFit: "cover" }}
+                />
+              )}
+            </>
+          )}
+        </div>
+
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">
+              <Link
+                to={`/blog/${blog._id}`}
+                style={{
+                  textDecoration: "none",
+                  textTransform: "capitalize",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  color: isdarkMode ? "white" : "#003300",
+                }}
+              >
+                {blog.title}
+              </Link>
+            </h5>
+            <p className="card-text text-muted">
+              {blog.description.slice(0, 100) + "..."}
+            </p>
+
+            {blog.title && (
+              <div
+                className="card-text d-flex justify-content-between
+                align-items-center"
+              >
+                {auth.user && slug === auth.user._id && (
+                  <div style={{ cursor: "pointer" }}>
+                    <Link to={`/update_blog/${blog._id}`}>
+                      <i className="fas fa-edit" title="edit" />
+                    </Link>
+
+                    <i
+                      className="fas fa-trash text-danger mx-3"
+                      title="edit"
+                      onClick={handleDelete}
+                    />
+                    <i className="fas fa-money-bill-alt">{blog.earn}</i>
+                  </div>
+                )}
+
+                <small className="text-muted text-capitalize">
+                  <i className="fa fa-eye" aria-hidden="true"></i>
+                  {blog.views} <i className="far fa-comment"></i>
+                  {blog.comment != undefined ? blog.comment : 0}{" "}
+                  <i className="far fa-thumbs-up"></i>
+                  {blog.like != undefined ? blog.like : 0}
+                </small>
+
+                <small className="text-muted">
+                  {new Date(blog.createdAt).toLocaleString()}
+                </small>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CardHoriz;

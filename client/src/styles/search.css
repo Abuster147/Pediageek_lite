@@ -1,0 +1,16 @@
+.search-box{
+    transition: width 2s;
+}
+
+.search-box input{
+    overflow: hidden;
+    transition: width 2s;
+}
+
+.search-box i{
+    transition: width 2s;
+}
+
+.search-box .fa-times {
+    transition: none;
+}
