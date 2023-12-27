@@ -23,4 +23,4 @@ step 7
 in second terminal type npm start
 
 browser page will automatically open and refresh the browser .
-for any problem contact 8114694441.
+
